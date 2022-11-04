@@ -1,0 +1,54 @@
+@use "../abstract/" as *;
+
+.hero {
+  @include cover-background("./assets/desktop/image-header.jpg");
+  height: 80rem;
+
+  @include breakpoint-down(xsmall) {
+    @include cover-background("./assets/mobile/image-header.jpg");
+    height: 53.8rem;
+  }
+
+  @include breakpoint-up(xlarge) {
+    height: 100vh;
+  }
+
+  &__container {
+    display: grid;
+    place-items: center;
+  }
+
+  .content-container {
+    text-align: center;
+    padding: 0 2.4rem;
+  }
+
+  .text-content {
+    padding: {
+      top: 19.5rem;
+      bottom: 9.3rem;
+    }
+
+    @include breakpoint-up(xlarge) {
+      padding-top: 28.5rem;
+    }
+
+    h1 {
+      font-size: $fs-800;
+      @include letter-spacing(18.5);
+      color: $color-text-white;
+    }
+
+    @include breakpoint-down(small) {
+      padding: {
+        top: 14.4rem;
+        bottom: 5.2rem;
+      }
+
+      h1 {
+        font-size: $fs-700;
+        @include letter-spacing(18);
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../abstract/" as *;
+
+body {
+  font-family: $ff-default;
+  font-size: $fs-300;
+  font-weight: $fw-600;
+  color: $color-text-default;
+  background-color: $color-background-default;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.h-wrapper {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-heading;
+}
