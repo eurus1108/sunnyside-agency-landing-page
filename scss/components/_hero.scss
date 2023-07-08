@@ -1,16 +1,21 @@
 @use "../abstract/" as *;
 
 .hero {
-  @include cover-background("./assets/desktop/image-header.jpg");
-  height: 80rem;
+  // @include cover-background("./assets/desktop/image-header.jpg");
+  // height: 80rem;
 
-  @include breakpoint-down(xsmall) {
-    @include cover-background("./assets/mobile/image-header.jpg");
-    height: 53.8rem;
-  }
+  // @include breakpoint-down(xsmall) {
+  //   @include cover-background("./assets/mobile/image-header.jpg");
+  //   height: 53.8rem;
+  // }
 
-  @include breakpoint-up(xlarge) {
+  // @include breakpoint-up(xlarge) {
+  //   height: 100vh;
+  // }
+
+  @include breakpoint-up(large) {
     height: 100vh;
+    overflow: hidden;
   }
 
   &__container {
@@ -39,15 +44,41 @@
       color: $color-text-white;
     }
 
-    @include breakpoint-down(small) {
+    @include breakpoint-down(medium) {
       padding: {
-        top: 14.4rem;
-        bottom: 5.2rem;
+        top: 8rem;
+        bottom: 4rem;
       }
 
       h1 {
         font-size: $fs-700;
         @include letter-spacing(18);
+      }
+    }
+  }
+
+  .image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    @include breakpoint-up(medium) {
+      .hero__img-mobile {
+        display: none;
+      }
+    }
+
+    @include breakpoint-down(small) {
+      .hero__img-desktop {
+        display: none;
       }
     }
   }
